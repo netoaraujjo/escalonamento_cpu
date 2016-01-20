@@ -29,11 +29,14 @@ def main():
     fcfs = FCFS()
     fcfs_result = fcfs.execute(processos)
 
+    sjf = SJF()
+    sjf_result = sjf.execute(processos)
+
     saida = "FCFS {0} {1} {2}"
 
     print(processos)
 
-    print(fcfs_result)
+    print(sjf_result)
 
     print(saida.format(fcfs_result[0], fcfs_result[1], fcfs_result[2]))
 

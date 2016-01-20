@@ -5,13 +5,13 @@ class FCFS:
     """Algoritmo de escalonamento First Come, First Serve (FCFS)"""
 
     def execute(self, processos):
-         """
+        """
         Executa o algoritmo. Recebe como parametros a lista de processos a
         serem executados.
         """
-        tempo_retorno_total = 0 # Inicializa o tempo de retorno total
+        tempo_retorno_total = 0  # Inicializa o tempo de retorno total
         tempo_resposta_total = 0 # Inicializa o tempo de resposta total
-        tempo_espera_total = 0 # Inicializa o tempo de espera total
+        tempo_espera_total = 0   # Inicializa o tempo de espera total
 
         # Armazena o instante de chegada do primeiro processo
         tempo_inicio = processos[0][0]
