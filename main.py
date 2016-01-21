@@ -32,13 +32,18 @@ def main():
     sjf = SJF()
     sjf_result = sjf.execute(processos)
 
-    saida = "FCFS {0} {1} {2}"
+    rr = RR()
+    rr_result = rr.execute(processos, 2)
+
+    saida = "FCFS {0} {1} {2}\nSJF {3} {4} {5}"
 
     print(processos)
 
-    print(sjf_result)
+    print(rr_result)
 
-    print(saida.format(fcfs_result[0], fcfs_result[1], fcfs_result[2]))
+    print(saida.format(
+            fcfs_result[0], fcfs_result[1], fcfs_result[2],
+            sjf_result[0], sjf_result[1], sjf_result[2]))
 
 if __name__ == '__main__':
     main()
