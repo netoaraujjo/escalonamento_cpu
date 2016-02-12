@@ -15,6 +15,7 @@ from rr import *
 # Tempo de espera médio – Soma dos períodos em que um processo estava no seu
 # estado pronto.
 
+# converte a entrada para uma lista de tuplas
 def converte_entrada(entrada):
     entrada = entrada.replace("\n", "")
     entrada = entrada.split(" ")
@@ -23,9 +24,11 @@ def converte_entrada(entrada):
     return entrada
 
 def main():
+    # le o arquivo de entrada
     entrada = sys.stdin.readlines()
     processos = map(converte_entrada, entrada)
 
+    # executa os algoritmos
     fcfs = FCFS()
     fcfs_result = fcfs.execute(processos)
 
@@ -35,15 +38,20 @@ def main():
     rr = RR()
     rr_result = rr.execute(processos, 2)
 
-    saida = "FCFS {0} {1} {2}\nSJF {3} {4} {5}"
+    # formata as saidas
+    saida_fcfs = "FCFS {0} {1} {2}"
+    saida_fcfs = saida_fcfs.format(fcfs_result[0], fcfs_result[1], fcfs_result[2])
 
-    print(processos)
+    saida_sjf = "SJF {0} {1} {2}"
+    saida_sjf = saida_sjf.format(sjf_result[0], sjf_result[1], sjf_result[2])
 
-    print(rr_result)
+    saida_rr = "RR {0} {1} {2}"
+    saida_rr = saida_rr.format(rr_result[0], rr_result[1], rr_result[2])
 
-    print(saida.format(
-            fcfs_result[0], fcfs_result[1], fcfs_result[2],
-            sjf_result[0], sjf_result[1], sjf_result[2]))
+    saida = "{0}\n{1}\n{2}"
+
+    # imprime a saida
+    print(saida.format(saida_fcfs, saida_sjf, saida_rr))
 
 if __name__ == '__main__':
     main()

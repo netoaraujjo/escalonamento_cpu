@@ -32,7 +32,6 @@ class RR:
         num_processos = len(processos)
 
         while procs:
-
             # seleciona o proximo processo a ser executado
             while True:
                 # busca o processo que chegou ao sistema no tempo atual
@@ -91,6 +90,11 @@ class RR:
 
         # Calcula o tempo de espera medio
         tempo_espera_medio = float(tempo_espera_total) / num_processos
+
+        # converte para string, substitui ponto por virgula, com uma casa decimal
+        tempo_retorno_medio = ("%.1f" % tempo_retorno_medio).replace('.', ',')
+        tempo_resposta_medio = ("%.1f" % tempo_resposta_medio).replace('.', ',')
+        tempo_espera_medio = ("%.1f" % tempo_espera_medio).replace('.', ',')
 
         # Retorna uma tupla contendo o tempo de retorno medio, o tempo de
         # resposta medio e o tempo de espera medio, respectivamente

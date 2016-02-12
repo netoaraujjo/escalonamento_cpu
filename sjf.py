@@ -63,15 +63,24 @@ class SJF:
         # Calcula o tempo de espera medio
         tempo_espera_medio = float(tempo_espera_total) / len(processos)
 
+        # converte para string, substitui ponto por virgula, com uma casa decimal
+        tempo_retorno_medio = ("%.1f" % tempo_retorno_medio).replace('.', ',')
+        tempo_resposta_medio = ("%.1f" % tempo_resposta_medio).replace('.', ',')
+        tempo_espera_medio = ("%.1f" % tempo_espera_medio).replace('.', ',')        
+
+        # Retorna uma tupla contendo o tempo de retorno medio, o tempo de
+        # resposta medio e o tempo de espera medio, respectivamente
         return (tempo_retorno_medio, tempo_resposta_medio, tempo_espera_medio)
 
 
+    # Metodo que busca o proximo processo a ser executado
     def __next_process(self, procs, ta):
-        """ Doc string """
-        possiveis_prox = []
+        """
+        Busca o proximo indice a ser executado. Recebe como parametros a lista de processos
+        e o tempo atual
+        """
 
         menor_duracao = None
-
         index_melhor = -1
 
         for index, p in enumerate(procs):
@@ -92,4 +101,5 @@ class SJF:
                             index_melhor = index
                             menor_duracao = p[1] # talvez desnecessario
 
+        # Retorna o indice do proximo processo a ser executado
         return index_melhor
